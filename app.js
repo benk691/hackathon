@@ -94,12 +94,6 @@ user_query.on("end", function(result) {
     client.end();
 });
 */
-$.ajax({
-    url: '/', 
-    type: 'POST', 
-    contentType: 'application/json', 
-    data: JSON.stringify({number:1})}
-)
 
 /*****************************************************/
 
