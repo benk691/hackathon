@@ -29,7 +29,21 @@ client.connect(function(err) {
     console.log(result.rows[0].theTime);
   });
 
+function IndexCtrl($scope, $http) {
+  $http.get('/api/posts').
+    success(function(data, status, headers, config) {
+      $scope.posts = data.posts;
+    });
+}
 
+/*
+$http({method: 'GET', url: '/login' })
+    success(function(data, status, headers, config) {
+    }),
+    error(function(data, status, headers, config) {
+    });
+*/
+/*
 // Create a new user
 client.query("INSERT INTO GSD_User(firstname, lastname, username, password) VALUES($1, $2, $3, $4);", ["Ben", "K", "bkell001", "1234"], function(err, result) {
     if(err) {
@@ -47,6 +61,7 @@ sel_user_query = client.query("SELECT * FROM GSD_User", function(err, result) {
 });;
 
 });
+*/
 
 /*
 user_query.on("row", function (row, result) {
