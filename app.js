@@ -10,3 +10,4 @@ server.listen(port, function (){
 });
 
 app.use(express.static(__dirname + '/static'));
+
