@@ -3,6 +3,36 @@ paper.install(window);
 //initialize socket
 var socket = io.connect('http://localhost:8080');
 
+//=======================================================================
+//Functions to change the brush variables
+//=======================================================================
+	var brushColor = 'black';//Default to color black
+
+	//Change color function
+	function changeColor(color) {
+		brushColor = color;//Set the global brush color
+	}
+
+	//Do not know how to actually change the size of the brush but this should help.
+	var brushSize = 1;
+
+	function changeSize(size) {
+		brushSize = size;//Update the size of the brush.
+	}
+	//holds whether the brush is a pencil or eraser 
+	//Can add more modes later if in erase mode, color is backround
+	//Also can add line tool where you click twice to add a line
+	//BRUSH MODES 
+	//Mode 0 = pencil
+	//Mode 1 = erase
+	//Mode 3 = line
+	//Mode 4 = ????
+	var brushMode = 0;//Default to pencil tool
+
+//=======================================================================
+// End Functions to change the brush variables
+//=======================================================================
+	
 window.onload = function() {
 	//define our canvas element
 	var canvas = document.getElementById('whiteBoard');
@@ -13,13 +43,16 @@ window.onload = function() {
 	var user = new User();
 	//define guests
 	var guests = new Array ();
-	//define 
+ 
 
 	var tool = new Tool(); //needed to create tools
 	tool.onMouseDown = function(event){
 		path = new Path();
-		path.strokeColor = 'black';
+		path.strokeWidth = brushSize;
+		
+		path.strokeColor = brushColor;
 		path.add(event.point);
+
 
 		socket.emit('addPath',{ id:user.id,
 							    x:event.point.x,
