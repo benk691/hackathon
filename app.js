@@ -29,40 +29,6 @@ client.connect(function(err) {
     console.log(result.rows[0].theTime);
   });
 
-/*
-// Drop tables that exist
-client.query("DROP TABLE IF EXISTS GSD_User CASCADE", function(err, result) {
-    if(err) {
-        return console.error('error running query', err);
-    }
-});
-
-client.query("DROP TABLE IF EXISTS GSD_Room CASCADE;", function(err, result) {
-    if(err) {
-        return console.error('error running query', err);
-    }
-});
-
-
-// Create the tables
-user_query = client.query("CREATE TABLE GSD_User(firstname varchar(50) NOT NULL, lastname varchar(50) NOT NULL, username varchar(50) PRIMARY KEY, password varchar(50) NOT NULL", function(err, result) {
-    if(err) {
-      return console.error('error running query', err);
-    }
-  });
-
-room_query = client.query("CREATE TABLE GSD_Room(room_id bigserial PRIMARY KEY)", function(err, result) {
-    if(err) {
-      return console.error('error running query', err);
-    }
-  });
-
-group_query = client.query("CREATE TABLE GSD_Group(room_id bigserial FOREIGN KEY REFERENCES Room(room_id) NOT NULL, username varchar(50) FOREIGN KEY REFERENCES User(username) NOT NULL)", function(err, result) {
-    if(err) {
-      return console.error('error running query', err);
-    }
-  });
-*/
 
 // Create a new user
 client.query("INSERT INTO GSD_User(firstname, lastname, username, password) VALUES($1, $2, $3, $4);", ["Ben", "K", "bkell001", "1234"], function(err, result) {
