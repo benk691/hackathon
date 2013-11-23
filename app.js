@@ -4,11 +4,12 @@ var express = require('express'),
     app = express(),
     server = require('http').createServer(app),
     io = require('./sockets.js').listen(server),
-    util = require('util');
+    util = require('util');  
 
 /************** POSTGRES DATABASE STUFF **************/
 
 // Require posgres
+/*
 var pg = require('pg').native; 
 // Require the credentials for connetcting to postgres
 var credentials = require('./database/credentials.js').data;
@@ -29,7 +30,7 @@ client.connect(function(err) {
     client.end();
   });
 });
-
+*/
 /*****************************************************/
 
 var port = process.env.PORT || 8080;
