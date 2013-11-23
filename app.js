@@ -64,21 +64,22 @@ group_query = client.query("CREATE TABLE GSD_Group(room_id bigserial FOREIGN KEY
   });
 */
 
+// Create a new user
 client.query("INSERT INTO GSD_User(firstname, lastname, username, password) VALUES($1, $2, $3, $4);", ["Ben", "K", "bkell001", "1234"], function(err, result) {
     if(err) {
         return console.error('error running query', err);
     }
 });
-/*
+
+// Show all users in DB
 sel_user_query = client.query("SELECT * FROM GSD_User", function(err, result) {
     if(err) {
         return console.error('error running query', err);
     }
     
+    console.log(result);
 });;
 
-util.log(sel_user_query);
-*/
 });
 
 /*
@@ -93,6 +94,12 @@ user_query.on("end", function(result) {
     client.end();
 });
 */
+$.ajax({
+    url: '/', 
+    type: 'POST', 
+    contentType: 'application/json', 
+    data: JSON.stringify({number:1})}
+)
 
 /*****************************************************/
 
