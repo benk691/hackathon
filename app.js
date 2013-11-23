@@ -16,6 +16,7 @@ var credentials = require('./database/credentials.js').data;
 // Client
 var client = new pg.Client(credentials);
 
+// Connect to the server
 client.connect(function(err) {
   if(err) {
     return console.error('could not connect to postgres', err);
