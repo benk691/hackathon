@@ -1,4 +1,5 @@
 //var conString = "pg://
+var gsdApp =  angular.module('gsdApp', [])
 
 var express = require('express'),
     app = express(),
@@ -11,6 +12,7 @@ var port = process.env.PORT || 8080;
 server.listen(port, function (){
     util.log('Server started on port ' + port);
 });
+
 
 app.use(express.static(__dirname + '/static'));
 
