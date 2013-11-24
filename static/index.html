@@ -1,43 +1,41 @@
 <!doctype html>
-<html lang='en' ng-app="gsdApp">
+<html lang='en' ng-app>
 <head>
-	<meta charset='utf-8'>
-	
-	<!--needed for module to work-->
-
-    <!--<link rel='stylesheet' href='./bower_components/bootstrap/js/tooltip.js'>-->
-    <script src="./bower_components/bootstrap/js/tooltip.js"> </script>
+    <meta charset='utf-8'>
+    
+    <!--needed for module to work-->
     <link rel='stylesheet' href='./static/css/style.css' >
     <script src="./bower_components/angular/angular.js"></script>
     <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     -->
     <!-- board drawing -->
-	<script type='text/javascript' src='./paper/dist/paper.js'></script>
-	<script type='text/javascript' src='./user.js'></script>
-	<script src='/socket.io/socket.io.js'></script>
-	<script type='text/javascript' src='./board.js'></script>
-	<!---------------------------->
-	
-	<title>The Canvas</title>
+    <script src="./bower_components/bootstrap/js/tooltip.js"> </script>
+    <script type='text/javascript' src='./paper/dist/paper.js'></script>
+    <script type='text/javascript' src='./user.js'></script>
+    <script src='/socket.io/socket.io.js'></script>
+    <script type='text/javascript' src='./board.js'></script>
+    <!---------------------------->
+    
+    <title>The Canvas</title>
 
-	<style>
-		#whiteBoard {
-			width:500px;
-			height:500px;
-			display:block;
-			margin-left:auto;
-			margin-right:auto;
-			border:1px solid black;
-		}
-	</style>
+    <style>
+        #whiteBoard {
+            width:500px;
+            height:500px;
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            border:1px solid black;
+        }
+    </style>
 </head>
 <body>
-	<div>
-		<ng-view></ng-view>
-	</div>
-    <a np-href="#/login">Login</a>
+    <div>
+        <ng-view></ng-view>
+    </div>
+    <a ng-href="/login">Login</a>
     <br />
-	<canvas id='whiteBoard'></canvas>
+    <canvas id='whiteBoard'></canvas>
 </body>
 
 </html>
