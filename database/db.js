@@ -1,5 +1,5 @@
 // Namespace
-(funtion() {
+(function() {
 
 require('any-db-postgres').forceJS = true
 var credentials = require('./credentials').data
@@ -9,6 +9,8 @@ conn.begin(function (err, conn) {
 
     if(err) return console.error(err);
 });
+
+module.exports.conn = conn;
 
 });
 

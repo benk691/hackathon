@@ -7,7 +7,9 @@ var express = require('express'),
     reload = require('reload'),
     server = require('http').createServer(app),
     io = require('./sockets.js').listen(server),
-    client = require('./database/database.js').client,
+    //client = require('./database/database.js').client,
+    conn = require('./database/db.js').conn,
+    anyDB = require('any-db'),
     util = require('util');
 
 app.post('/login', function(req, res) {
