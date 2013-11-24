@@ -1,14 +1,14 @@
 {
-	"name": "drawing-app",
-	"version": "0.0.1",
-	"dependencies": {
-		"express": 	"3.4.4",
-		"socket.io" : "0.9.16"
-	},
-	
-	"engines": {
-		"node": "0.10.12",
-		"npm": "1.2.x"
-	}
+  "name": "drawing-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.4.4",
+    "socket.io": "0.9.16",
+    "any-db": "~1.0.0",
+    "any-db-postgres": "~1.0.0"
+  },
+  "engines": {
+    "node": "0.10.12",
+    "npm": "1.2.x"
+  }
 }
-	
