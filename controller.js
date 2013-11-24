@@ -1,6 +1,6 @@
 var http = require('http')
 var client = require('./database/database.js').client,
-/*
+
 function LoginUser($scope, http) {
   http.get('/login').
     success(function(data, status, headers, config) {
@@ -11,7 +11,7 @@ function LoginUser($scope, http) {
       //response.
     });
 }
-*/
+
 /*
 var gsdApp =  angular.module('gsdApp', []).
     config(function($routeProvider) {
