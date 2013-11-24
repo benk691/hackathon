@@ -28,7 +28,11 @@ var socket = io.connect('http://localhost:8080');
 	//Mode 3 = line
 	//Mode 4 = ????
 	var brushMode = 0;//Default to pencil tool
-
+	function changeMode(mode){
+		brushMode = mode;//Update the current brush mode
+	}
+    //Tooltips
+    //$('.tips').tooltip();
 //=======================================================================
 // End Functions to change the brush variables
 //=======================================================================
@@ -48,16 +52,37 @@ window.onload = function() {
 	var tool = new Tool(); //needed to create tools
 	tool.onMouseDown = function(event){
 		path = new Path();
+		//Do different things based on mode now erase and pencil
+		if(brushMode === 1){//Eraser 
+		path.strokeWidth = 5 + brushSize*15;//So that it erases a large area
+		path.strokeColor = 'white';//Set color to white May be better to have an erase that actually erases.
+		path.strokeCap = 'round';
+		}else if(brushMode===0){
+		path.strokeCap = 'round';
 		path.strokeWidth = brushSize;
-		
 		path.strokeColor = brushColor;
+		}
 		path.add(event.point);
 
 
 		socket.emit('addPath',{ id:user.id,
 							    x:event.point.x,
-							    y:event.point.y });
+							    y:event.point.y, 
+								size:path.strokeWidth,
+								color:path.strokeColor,
+								cap:path.strokeCap});
+
 		view.draw();
+	}
+
+	tool.onMouseUp = function(event) {
+		path.add(event.point);
+
+		socket.emit('addPoint',{ id:user.id,
+		                         x:event.point.x,
+								 y:event.point.y });
+		view.draw();
+
 	}
 
 	tool.onMouseDrag = function(event) {
@@ -103,7 +128,9 @@ window.onload = function() {
 		var index = findUser( guests, data.id );
 		if ( index > -1 ){
 			var tmpPath = new Path();
-			tmpPath.strokeColor = 'black';
+			tmpPath.strokeWidth = data.size;
+			tmpPath.strokeCap = data.cap;
+			tmpPath.strokeColor = data.color;
 			guests[index].path = tmpPath;
 		}
 	});
