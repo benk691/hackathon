@@ -5,9 +5,12 @@
 	
 	<!--needed for module to work-->
 
-    <link rel='stylesheet' href='./dist/css/bootstrap.css'>
+    <!--<link rel='stylesheet' href='./bower_components/bootstrap/js/tooltip.js'>-->
+    <script src="./bower_components/bootstrap/js/tooltip.js"> </script>
     <link rel='stylesheet' href='./static/css/style.css' >
     <script src="./bower_components/angular/angular.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    -->
     <!-- board drawing -->
 	<script type='text/javascript' src='./paper/dist/paper.js'></script>
 	<script type='text/javascript' src='./user.js'></script>
@@ -29,8 +32,12 @@
 	</style>
 </head>
 <body>
+	<div>
+		<ng-view></ng-view>
+	</div>
+    <a np-href="#/login">Login</a>
+    <br />
 	<canvas id='whiteBoard'></canvas>
 </body>
 
-    <script src="./login.js"></script>
 </html>
