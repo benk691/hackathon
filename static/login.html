@@ -1,6 +1,18 @@
 <div class='login'>
-    <input type="text" data-ng-model="newUser.username"/>
-    <input
+    <h2>Login</h2>
+    <br />
+    <div>Username<br />
+        <input type="text" data-ng-model="newUser.username"/>
+    </div>
+
+    <br />
+    <div>Password<br />
+        <input type="text" data-ng-model="newUser.password"/>
+    </div>
+    <br />
+
+    <button data-ng-click="LoginUser()">Login</button>
+
     <!--
     <form class='form-horizontal' role='form'>
         <div class='form-group'>
