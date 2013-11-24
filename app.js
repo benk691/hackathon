@@ -1,5 +1,16 @@
 //var conString = "pg://
-var gsdApp =  angular.module('gsdApp', [])
+"use strict"; // NO IDEA WHAT THIS IS
+
+var gsdApp =  angular.module('gsdApp', []).
+    config(function($routeProvider) {
+        $routeProvider
+            .when('/',
+            {
+                controller: 'LoginController'
+                templateUrl: 'login.html'
+            })
+            .otherwise({ redirectTo: '/' });
+    });
 
 var express = require('express'),
     app = express(),
@@ -12,7 +23,6 @@ var port = process.env.PORT || 8080;
 server.listen(port, function (){
     util.log('Server started on port ' + port);
 });
-
 
 app.use(express.static(__dirname + '/static'));
 
