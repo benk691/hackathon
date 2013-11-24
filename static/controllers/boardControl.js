@@ -1,11 +1,17 @@
 //socket was defined as a factory
-function boardControl($scope,$window,socket){
-	//install paper to global scope
-	paper.install(window);
-	//set myself as a new user
-	var user = new User();
-	//define new guests
-	var guests = new Array ();
+function boardControl($scope,socket){
+
+	$scope.initBoard = function() {
+		//install paper to global scope
+		paper.install(window);
+	
+		var canvas = document.getElementById('whiteBoard');
+		paper.setup(canvas);
+
+		//set myself as a new user
+		var user = new User();
+		//define new guests
+		var guests = new Array ();
 	
 	var tool = new Tool(); //needed to create tools
 	tool.onMouseDown = function(event){
@@ -72,4 +78,5 @@ function boardControl($scope,$window,socket){
 		guests[index].path.add({x:data.x, y:data.y});
 		view.draw();
 	}); 
+}
 }

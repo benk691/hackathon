@@ -3,7 +3,7 @@ var User = function(num){
 		path;
 	
 	id = num || createId();
-	path = new Path();
+	path = new paper.Path();
 	
 	return {
 		id:id,
