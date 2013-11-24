@@ -1,29 +1,32 @@
 <!doctype html>
-<html lang='en'>
+<html lang='en' ng-app='getStuffDone'>
 <head>
 	<meta charset='utf-8'>
-	
-	<!--needed for module to work-->
-	<script type='text/javascript' src='./paper/dist/paper.js'></script>
-	<script type='text/javascript' src='./user.js'></script>
-	<script src='/socket.io/socket.io.js'></script>
-	<script type='text/javascript' src='./board.js'></script>
-	<!---------------------------->
-	
-	<title>The Canvas</title>
-
-	<style>
-		#whiteBoard {
-			width:500px;
-			height:500px;
-			display:block;
-			margin-left:auto;
-			margin-right:auto;
-			border:1px solid black;
-		}
-	</style>
+	<title>Main</title>
+	<link rel='stylesheet' href="./assets/css/bootstrap.css"></script>
 </head>
 <body>
-	<canvas id='whiteBoard'></canvas>
+
+<div class='container'>
+		<div class='header'>
+			<ul class="nav nav-pills pull-right">
+				<li class="active"><a href="#">Link1</a></li>
+				<li><a href="#">Link2</a></li>
+				<li><a href="#">Link3</a></li>
+			</ul>
+			<h3 class="text-muted">Get Stuff Done!</h3>
+			<hr>
+		</div>
+		<!--place for views-->
+		<ng-view></ng-view>	    
+	</div>
+	
+	<!---------- Javascript files ---------->
+	<!--angular-->
+	<script src="./assets/js/angular.js"></script>
+	<script src="./assets/js/angular-route.js"></script>
+	<script src="./app.js"></script>
+
 </body>
 </html>
+
